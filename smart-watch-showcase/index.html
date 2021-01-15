@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Smart Watch</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel='stylesheet' type='text/css' media='screen' href='index.css'>   
+
+    <!-- Libraries  -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+    <!-- Code -->
+    <script src='index.js'></script>
+</head>
+
+
+<body>
+    <!-- #header -->
+    <div class="header">
+        <img src="../assets/amazon-logo.png" alt="Amazon Shop" id="img-amazon-logo">
+    </div>
+
+    <div class="row">
+        <div class="column1 container"> 
+            <img src="../assets/sw-black.png" alt="Black Strap" class="smart-watch" id="img-sw">
+            <div class="text-block" id="sw-screen">
+                <h2 id="time">00:00:00</h2>
+                <img src="" alt="" id="heart-rate">
+            </div>
+        </div>
+        <div class="column2">
+            <div>
+                <h1>FitBit 19 - The Smartest Watch</h1>
+                <p>
+                    Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor 
+                    Lorem ipsum dolor Lorem ipsum dolor.
+                </p>
+            </div>
+
+            <!-- Color selector -->
+            <div class="v-span">
+                <h3>Select Color</h3>
+
+                <button class="round-button color-button black" id="btn-black"></button>
+                <button class="round-button color-button red" id="btn-red"></button>
+                <button class="round-button color-button blue" id="btn-blue"></button>
+                <button class="round-button color-button purple" id="btn-purple"></button>
+                <button class="round-button color-button pink" id="btn-pink"></button>
+            </div>
+
+            <!-- Features -->
+            <div class="v-span">
+                <h3>Features</h3>
+                <button class="round-button feature-button" id="btn-time"> Time </button>
+                <button class="round-button feature-button" id="btn-hr"> Heart Rate </button>
+            </div>
+
+            <!-- Buy -->
+            <div class="v-span">
+                <button class="round-button buy-button orange" id="btn-buy"> BUY NOW </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

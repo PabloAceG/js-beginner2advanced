@@ -1,7 +1,3 @@
-// TODO: Should C perform different operation depending on buffer/screen
-// TODO: What to do with screen after equal operation
-// TODO; Errors
-
 window.onload = () => {
     // Numpad
     const key0 = $('#key0');
@@ -43,7 +39,15 @@ window.onload = () => {
                     buffer *= num;
                     break;
                 case '/':
-                    buffer /= num;
+                    try {
+                        if (num === 0) throw 'Division by 0, it is not a valid operation.';
+                        buffer /= num;
+                    } catch (err) {
+                        // Print error
+                        clear = true;
+                        console.error(err);
+                        setTimeout(() => { screen.text('Div0 Err!'); }, 250);
+                    }
                     break;
             }
             // Update screen value

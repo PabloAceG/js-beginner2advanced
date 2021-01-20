@@ -10,7 +10,7 @@ section). But, what can you find here?
 |-- assets
 |-- calculator-app
 |-- classes
-|-- quiz
+|-- multi
 |-- smart-watch-showcase
 ```
 
@@ -20,8 +20,9 @@ calculator, useful to familiarize with grid layouts, errors, logical operators,
 etc.
 - **Classes**: Notes I took from the lessons (not really organized into the 
 classes themselves, more into logical blocks).
-- **Quiz**: Slightly more complex project, a recap of all concepts learned 
-through the course.
+- **Multi**: Slightly more complex project, a recap of all concepts learned 
+through the course. Has four "games": a emoji generator, a quiz, a media 
+reproductor and a multi-step form.
 - **SmartWatch Application**: Simulation of a store selling different 
 SmartWatch models. Useful to change images, images superposition, iteractive
 actions (intervals), etc.

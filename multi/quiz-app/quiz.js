@@ -1,4 +1,9 @@
 $(document).ready(function() {
+    let answers = [];
+
+    /**
+     *  GET Resquest to select all questions.
+     */
     const getQuestions = new Promise((resolve, reject) => {
         $.get('http://5d76bf96515d1a0014085cf9.mockapi.io/quiz', (data) => {
             resolve(data);
@@ -23,32 +28,63 @@ $(document).ready(function() {
         console.error('Call failed ==> ${err}');
     });
 
+    /**
+     *  Creates a new question section.
+     *  - id (number): Question identifier.
+     *  - answer (number): Correct answer option.
+     *  - question (string): Question definition.
+     *  - options (array[string]): Possible answers.
+     */
     const createQuestionCard = (id, answer, question, options) => {
         // Create section
         const sectionId = 'section-' + id;
-        const section = '<section class="quiz-item" id="${sectionId}"> </section>';
+        const section = '<section class="quiz-item" id="' + sectionId + '"> </section>';
         $('#quiz').append(section);
 
         // Include question
-        const questionTitle = '<h3>${question}</h3>';
+        const questionTitle = '<h3>' + question + '</h3>';
         $('#' + sectionId).append(questionTitle);
+
+        // Answer
+        answers.push(answer);
 
         // Include opt1ons
         let counter = 1;
         for (let opt in options) {
             const optionDiv = 
                 '<div class="option-wrapper"> <label>' + 
-                  '<input type="radio" required name=q${id} value="${counter}">' +
-                  '<p>${opt}</p>' +
+                  '<input type="radio" required name=q' + id + ' value="' + options[opt] + '">' +
+                  '<p>' + options[opt] + '</p>' +
                 '</label> </div>';
 
             $('#' + sectionId).append(optionDiv);
             counter++;
         }
-
-
     };
 
-    // TODO: Interaction for clicked
-    // TODO: Check results
+    // Check answers
+    const submit = $('#btn-submit');
+    const score = $('#score-count');
+    submit.on('click', () => {
+        let counter = 0;
+        let rightCount = 0;
+        const selectedOptions = $('input:radio').each(() => {
+            let isChecked = this.activeElement.checked;
+            console.log(this.activeElement.checked);
+            if (isChecked) {
+                console.log('checked');
+                if ( $(this).val() === answers[counter]) {
+                    console.log('For tomorrow');
+                } else {
+                    console.log('For another day');
+                }
+            }
+
+            counter++;
+        });
+       
+        // Update score
+        score.text(rightCount);
+    });
 });
+

@@ -8,6 +8,12 @@
     <link href="https://fonts.googleapis.com/css?family=Caveat+Brush|Source+Sans+Pro:400,600,700&display=swap" rel="stylesheet">
     <title>The Multi-Step Form</title>
     <link rel="stylesheet" href="./form.css">
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="./form.js"></script>
 </head>
 
 <body>
@@ -23,6 +29,7 @@
                         <div class="FormGroup">
                             <label for="first_name">First Name *</label>
                             <input id="first_name" type="text" placeholder="First Name">
+                            <p class="ErrorText" id="first_name_empty">This field can not be empty!</p>
                             <p class="ErrorText" id="first_name_error">Please enter a valid first name.</p>
                         </div>
                         <div class="FormGroup">
@@ -33,10 +40,11 @@
                         <div class="FormGroup">
                             <label for="email">Email *</label>
                             <input id="email" type="email" placeholder="Email">
+                            <p class="ErrorText" id="email_empty">This field can not be empty!</p>
                             <p class="ErrorText" id="email_error">Please enter a valid Email</p>
                         </div>
                         <div class="FormGroupButtons">
-                            <button id="StepOneNext">NEXT</button>
+                            <button id="StepOneNext" type="button">NEXT</button>
                         </div>
 
                     </fieldset>
@@ -47,6 +55,7 @@
                         <div class="FormGroup">
                             <label for="contact">Contact *</label>
                             <input id="contact" type="tel" placeholder="Contact">
+                            <p class="ErrorText" id="contact_empty">This field can not be empty!</p>
                             <p class="ErrorText" id="contact_error">Please enter a valid contact</p>
                         </div>
                         <div class="FormGroup">
@@ -57,12 +66,13 @@
                         <div class="FormGroup">
                             <label for="country">Country *</label>
                             <input id="country" type="text" placeholder="Country">
+                            <p class="ErrorText" id="country_empty">This field can not be empty!</p>
                             <p class="ErrorText" id="country_error">Please enter a valid Country</p>
                         </div>
 
                         <div class="FormGroupButtons">
-                            <button id="StepTwoPrevious">PREVIOUS</button>
-                            <button id="StepTwoNext">NEXT</button>
+                            <button id="StepTwoPrevious" type="button">PREVIOUS</button>
+                            <button id="StepTwoNext" type="button">NEXT</button>
                         </div>
                     </fieldset>
 
@@ -85,8 +95,8 @@
                             <p class="ErrorText" id="message_error">Please enter a message</p>
                         </div>
                         <div class="FormGroupButtons">
-                            <button id="StepThreePrevious">PREVIOUS</button>
-                            <button id="StepThreeSubmit">SUBMIT</button>
+                            <button id="StepThreePrevious" type="button">PREVIOUS</button>
+                            <button id="StepThreeSubmit" type="button">SUBMIT</button>
                         </div>
                     </fieldset>
                 </form>

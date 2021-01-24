@@ -1,5 +1,9 @@
+/**
+ * @author: Pablo Acereda
+ */
+// TODO: Mark corrent/incorrect answers
 $(document).ready(function() {
-    let answers = [];
+    let answers = {};
 
     /**
      *  GET Resquest to select all questions.
@@ -30,30 +34,31 @@ $(document).ready(function() {
 
     /**
      *  Creates a new question section.
-     *  - id (number): Question identifier.
-     *  - answer (number): Correct answer option.
-     *  - question (string): Question definition.
-     *  - options (array[string]): Possible answers.
+     *
+     *  @param {number} id: Question identifier.
+     *  @param {number} answer: Correct answer option.
+     *  @param {string} question: Question definition.
+     *  @param {object} options: Possible answers.
      */
     const createQuestionCard = (id, answer, question, options) => {
         // Create section
         const sectionId = 'section-' + id;
         const section = '<section class="quiz-item" id="' + sectionId + '"> </section>';
-        $('#quiz').append(section);
+        $(section).insertBefore('#submit-section');
 
         // Include question
         const questionTitle = '<h3>' + question + '</h3>';
         $('#' + sectionId).append(questionTitle);
 
         // Answer
-        answers.push(answer);
+        answers['q' + id] = answer;
 
         // Include opt1ons
         let counter = 1;
         for (let opt in options) {
             const optionDiv = 
                 '<div class="option-wrapper"> <label>' + 
-                  '<input type="radio" required name=q' + id + ' value="' + options[opt] + '">' +
+                  '<input type="radio" required name=q' + id + ' value="' + counter + '"/>' +
                   '<p>' + options[opt] + '</p>' +
                 '</label> </div>';
 
@@ -62,27 +67,34 @@ $(document).ready(function() {
         }
     };
 
-    // Check answers
+    /**
+     * Check answers and show the final score of the quiz.
+     */
     const submit = $('#btn-submit');
-    const score = $('#score-count');
     submit.on('click', () => {
-        let counter = 0;
         let rightCount = 0;
-        const selectedOptions = $('input:radio').each(() => {
-            let isChecked = this.activeElement.checked;
-            console.log(this.activeElement.checked);
+        const score = $('#score-count');
+        const selectedOptions = $('input:radio').each((pos, elem) => {
+            let isChecked = elem.checked;
+            let questionAnswer = answers[elem.name];
+            let checkedOption = elem.value;
+
+            // Removes answer classes in case there was a previous try
+            elem.classList.remove('correct-answer');
+            elem.classList.remove('incorrect-answer');
+
             if (isChecked) {
-                console.log('checked');
-                if ( $(this).val() === answers[counter]) {
-                    console.log('For tomorrow');
+                if (questionAnswer == checkedOption) {
+                    console.log('correct');
+                    elem.classList.add('correct-answer');
+                    rightCount += 1;
                 } else {
-                    console.log('For another day');
+                    console.log('incorrect');
+                    elem.classList.add('incorrect-answer');
                 }
             }
-
-            counter++;
         });
-       
+
         // Update score
         score.text(rightCount);
     });

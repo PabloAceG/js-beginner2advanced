@@ -67,7 +67,6 @@ body {
     border-bottom: 1px solid #fad744;
     text-align: left;
 }
-            }
 
 .quiz-item h3 {
     font-size: 24px;
@@ -78,18 +77,6 @@ body {
     padding-bottom: 8px;
     margin-bottom: 8px;
 }
-
-/* .correct {
-    background-color: rgba(0, 255, 0 , 0.1);
-    border: 1px solid green;
-    border-radius: 8px;
-}
-
-.incorrect {
-    background-color: rgba(255, 0, 0 , 0.1);
-    border: 1px solid red;
-    border-radius: 8px;
-} */
 
 .option-wrapper p {
     display: inline-block;
@@ -171,12 +158,12 @@ body {
 
 .correct-answer {
     border: 1px solid green;
-    background-color: rgba(0, 255, 0, 0.2);
+    color: rgba(0, 255, 0, 0.2);
     border-radius: 8px;
 }
 
 .incorrect-answer {
     border: 1px solid red;
-    background-color: rgba(255, 0, 0, 0.2);
+    color: rgba(255, 0, 0, 0.2);
     border-radius: 8px;
 }

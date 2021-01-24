@@ -21,15 +21,15 @@ $(document).ready( () => {
     } 
 
     // Show selected item
-    $('#show-skin-card').click( () => {
+    $('.show-skin-card').click( () => {
         showSkinCard();
     });
 
-    $('#show-eyes-card').click( () => {
+    $('.show-eyes-card').click( () => {
         showEyesCard();
     });
 
-    $('#show-mouth-card').click( () => {
+    $('.show-mouth-card').click( () => {
         showMouthCard();
     });
 

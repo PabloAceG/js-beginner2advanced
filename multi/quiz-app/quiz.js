@@ -1,9 +1,9 @@
 /**
  * @author: Pablo Acereda
  */
-// TODO: Mark corrent/incorrect answers
 $(document).ready(function() {
     let answers = {};
+    let numQuestions = 0;
 
     /**
      *  GET Resquest to select all questions.
@@ -73,30 +73,35 @@ $(document).ready(function() {
     const submit = $('#btn-submit');
     submit.on('click', () => {
         let rightCount = 0;
+        let numChecked = 0;
         const score = $('#score-count');
         const selectedOptions = $('input:radio').each((pos, elem) => {
             let isChecked = elem.checked;
             let questionAnswer = answers[elem.name];
             let checkedOption = elem.value;
 
-            // Removes answer classes in case there was a previous try
-            elem.classList.remove('correct-answer');
-            elem.classList.remove('incorrect-answer');
-
             if (isChecked) {
+                numChecked++;
                 if (questionAnswer == checkedOption) {
-                    console.log('correct');
-                    elem.classList.add('correct-answer');
                     rightCount += 1;
-                } else {
-                    console.log('incorrect');
-                    elem.classList.add('incorrect-answer');
                 }
             }
         });
 
         // Update score
         score.text(rightCount);
+
+        if (numChecked === 5) {
+            // Pop-up with score
+            $('#modal-wrapper').css('display', 'block');
+            $('#result').html(rightCount + '/' + 5);
+        }
+
     });
+
+    $('#backdrop').click(function() {
+        location.search = '';
+        $('#modal-wrapper').css("display", "none");
+    })
 });
 

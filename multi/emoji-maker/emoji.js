@@ -1,4 +1,3 @@
-// TODO: Arrows don't work
 $(document).ready( () => {
     // Show selected item
     function showSkinCard() {

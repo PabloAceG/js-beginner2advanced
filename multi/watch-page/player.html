@@ -12,6 +12,7 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./player.css" />
+    <script src="./player.js"></script>
 </head>
 <body>    
     <main>        
@@ -28,9 +29,9 @@
                             <p><span id="views-count">98.4k</span> views</p>
 
                             <div>
-                                <i class="far fa-heart"></i>
-                                <i class="far fa-comment-alt"></i>
-                                <i class="far fa-bookmark"></i>
+                                <i id="heart"    class="far fa-heart"></i>
+                                <i id="comment"  class="far fa-comment-alt"></i>
+                                <i id="bookmark" class="far fa-bookmark"></i>
                             </div>
                         </div>
                         <h3 id="video-title">Croissants | Flour and Stone</h3>
@@ -39,39 +40,10 @@
                 </div>
 
                 <div id="playlist-wrapper">
-                    <div id="card1" class="playlist-card active-card">
-                        <img class="thumbnail" src="https://i.vimeocdn.com/video/600595198_390x220.webp" />
-                        <h3 class="video-card-title">Croissants | Flour and Stone</h3>
-                    </div>
-
-                    <div id="card2" class="playlist-card">
-                        <img class="thumbnail" src="https://i.vimeocdn.com/video/604150056_390x220.webp" />
-                        <h3 class="video-card-title">Perfect Mashed Potatoes and Gravy</h3>
-                    </div>
-
-                    <div id="card3" class="playlist-card">
-                        <img class="thumbnail" src="https://i.vimeocdn.com/video/726986673_390x220.webp" />
-                        <h3 class="video-card-title">The Heart of Soba</h3>
-                    </div>
-
-                    <div id="card4" class="playlist-card">
-                        <img class="thumbnail" src="https://i.vimeocdn.com/video/570486309_390x220.webp" />
-                        <h3 class="video-card-title">Grilled Cheese 9 Ways</h3>
-                    </div>
-
-                    <div id="card5" class="playlist-card">
-                        <img class="thumbnail" src="https://i.vimeocdn.com/video/602705517_390x220.webp" />
-                        <h3 class="video-card-title">Pineapple Cheesecake</h3>
-                    </div>
-
-                    <div id="card6" class="playlist-card">
-                        <img class="thumbnail" src="https://i.vimeocdn.com/video/537261616_390x220.jpg" />
-                        <h3 class="video-card-title">Lemony Chicken Noodle Soup</h3>
-                    </div>
+                    <!-- Here goes the videos playlist (API Call) -->
                 </div>
             </div>
         </div>
     </main>
-    <script src="./player.js"></script>
 </body>
 </html>
